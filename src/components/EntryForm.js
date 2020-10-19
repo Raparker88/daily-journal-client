@@ -48,7 +48,7 @@ export const EntryForm = (props) => {
             addEntry({
                 concept: entry.concept,
                 entry: entry.entry,
-                date: Date.now(),
+                date: entry.date,
                 moodId: parseInt(entry.moodId)
             })
         }
@@ -58,6 +58,17 @@ export const EntryForm = (props) => {
     return (
         <form className="EntryForm">
             <h2 className="EntryForm__title">{editMode ? "Update Entry" : "Create Entry"}</h2>
+            <fieldset className="dateField">
+                <div className="form-group">
+                    <label htmlFor="date">Date: </label>
+                    <input type="date" id="scheduleDate" name="date"
+                        proptype="varchar"
+                        placeholder="Entry date"
+                        defaultValue={entry.date}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="concept">Concept: </label>
